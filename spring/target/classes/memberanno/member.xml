@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.3.xsd">
+
+<!-- 
+	<bean id = "dao" class="memberanno.MemberDAO">
+		<property name="memberVO" ref="vo" /> 
+	</bean>
+-->
+	<bean id="vo" class="memberanno.MemberVO">
+		<constructor-arg value="spring"/> 
+		<constructor-arg value="work"/>
+	</bean>
+<!-- 
+@Component("vo") == vo = new MemberVO();
+컴포넌트 어노테이션으로 변수에 값 설정 불가능
+-->
+	<bean id="vo2" class="memberanno.MemberVO">
+		<property name="id" value="setvlet"/>
+		<property name="pw" value="jsp"/>
+	</bean>
+<!-- 	
+	<bean id="service" class="memberanno.MemberServiceImpl">
+		<property name="memberDAO" ref="dao"></property>
+	</bean>
+ -->
+	<context:component-scan base-package="memberanno" />
+	
+</beans>

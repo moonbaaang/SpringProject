@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+<mapper namespace="spring_mybatis.EmpDAO">
+
+<select id="getOneEmp" resultType="empVO" parameterType="int">
+SELECT * FROM EMPLOYEES WHERE EMPLOYEE_ID=#{EMPLOYEE_ID}
+</select>
+
+<select id='getAllEmp' resultType="empVO">
+select * from employees
+</select>
+
+<!-- <select id="manyEmp" resultType="emp">
+<![CDATA[SELECT * FROM EMPLOYEES where employee_id > 200]]> 
+<부등호 기호는 쓸수 없기에 <![CDATA[...]]>
+</select> -->
+
+<select id="getPagingEmp" parameterType="int[]" resultType="empVO">
+select employee_id, first_name, salary
+from(select rownum r, employee_id, first_name, salary
+	from(select * from employees order by hire_date) imsi
+	)
+where r between 
+	<foreach collection="array" item="num" separator="and">
+		#{num}
+	</foreach>
+</select>
+
+<!-- 
+select *
+from(select rownum r, imsi.*
+	from(select * from employees order by hire_date) imsi
+	)
+where r between ? and ?
+ -->
+ 
+<select id="checkEmp" parameterType="empVO" resultType="empVO">
+select employee_id, email from employees
+where employee_id=#{employee_id}
+or email=#{email}
+</select>
+
+<select id="checkJob" parameterType="empVO" resultType="String">
+select job_id from jobs
+where job_id=#{job_id}
+</select>
+
+<insert id="insertEmp" parameterType="empVO">
+insert into employees(employee_id, first_name, last_name, email, job_id, hire_date)
+values(#{employee_id}, #{first_name}, #{last_name}, #{email}, #{job_id}, sysdate)
+</insert>
+
+<update id="modifyEmp" parameterType="empVO">
+update employees 
+set employee_id=#{employee_id}, first_name=#{first_name}, last_name=#{last_name}, email=#{email}, job_id=#{job_id}
+where employee_id=#{employee_id} or last_name=#{last_name}
+</update>
+
+<delete id="deleteEmp" parameterType="int">
+delete from employees
+where employee_id=#{employee_id}
+</delete>
+<!--  Name                                      Null?    Type -->
+ 
+<!--  EMPLOYEE_ID                               NOT NULL NUMBER(6) -->
+<!--  FIRST_NAME                                         VARCHAR2(20) -->
+<!--  LAST_NAME                                 NOT NULL VARCHAR2(25) -->
+<!--  EMAIL                                     NOT NULL VARCHAR2(25) -->
+<!--  PHONE_NUMBER                                       VARCHAR2(20) -->
+<!--  HIRE_DATE                                 NOT NULL DATE -->
+<!--  JOB_ID                                    NOT NULL VARCHAR2(10) -->
+<!--  SALARY                                             NUMBER(8,2) -->
+<!--  COMMISSION_PCT                                     NUMBER(2,2) -->
+<!--  MANAGER_ID                                         NUMBER(6) -->
+<!--  DEPARTMENT_ID                                      NUMBER(4) -->
+
+
+<!-- <insert id="insertEmp" parameterType="emp"> 나올 수 있는 데이터 타입을 배열/리스트/맵 등 -->
+<!-- insert into employees values( -->
+<!-- #{employee_id}, #{first_name}, #{last_name}, #{email}, #{phone_number}, sysdate, -->
+<!-- #{job_id}, #{salary}, null, #{manager_id}, #{department_id}"} -->
+<!-- </insert> -->
+
+<!-- <update id="updateEmp" parameterType="emp"> -->
+<!-- update employees -->
+<!-- set first_name=#{first_name} -->
+<!-- where employees_id=#{employee_id} -->
+<!-- </update> -->
+
+<!-- <delete id="deleteEmp" parameterType="int"> -->
+<!-- delete employees where employee_id=#{a} -->
+<!-- </delete> -->
+
+<!-- <select id="cnt" resultType="int"> -->
+<!-- 	select count(*) from employees -->
+<!-- </select> -->
+
+<!-- int cnt = session.selectOne("kdigital.cnt") -->
+
+
+
+
+<!-- <insert id="insertEmp2" parameterType="emp"> -->
+<!-- <selectKey resultType="int" keyProperty="employee_id" order="BEFORE"> -->
+<!-- 	select emp_seq.nextval from dual -->
+<!-- </selectKey> -->
+<!-- 	insert into employees values( -->
+<!-- 	#{employee_id}, #{first_name}, #{last_name}, #{email}, #{phone_number}, sysdate, -->
+<!-- 	#{job_id}, #{salary}, null, #{manager_id}, #{department_id}"} -->
+<!-- </insert> -->
+
+<!-- create sequence emp_seq; -->
+<!-- emp_seq.nextval from dual; -->
+<!-- insert into employees (emp_seq.nextval, ...) -->
+ 
+ 
+<!--  <select id="selectwithlist" parameterType="java.util.List" resultType="emp"> -->
+<!--  select employee_id, first_name, department_id -->
+<!--  from employees -->
+<!--  where department_id in -->
+<!--  	<foreach collection="list" item="deptList" open="(" separator="," close=")"> -->
+<!-- 		#{deptList } -->
+<!-- 	</foreach> -->
+
+<!--  </select> -->
+ 
+<!--  <update id="updatewithmap" parameterType="java.util.Map"> -->
+<!--  update employees -->
+<!--  set department_id=#{dept}, email=#{email} -->
+<!--  where employee_id = -->
+<!--  <if test="id==null"> 1 </if> -->
+<!--  <if test="id==null"> #{id} </if> -->
+<!--  </update> -->
+ 
+</mapper>
+

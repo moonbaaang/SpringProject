@@ -1,0 +1,51 @@
+package com.multi.myboot01;
+
+import java.util.Scanner;
+
+public class testsetes {
+                                                                                                                                
+	   public static void main(String[] args) {                                                                                                        
+	                                                                                                                                                  
+	      Scanner scan = new Scanner(System.in);                                                                                                      
+	      System.out.println("< 0부터 10000까지 중에 있는 숫자를 쓰시오 >");                                                                                        
+	                                                                                                                                                  
+	      int end = scan.nextInt();                                                                                                                   
+	      int total = 0;                                                                                                                              
+	      int count = 0;                                                                                                                              
+	                                                                                                                                                  
+	      while(count<=end) {                                                                           
+	            int t = count/1000;                                                                                                                 
+	            int h = count%1000;                                                                                                                  
+	            int ten = count%100;
+	            int one = count%10;
+	                                                                                                                                               
+	            if(t==3||t==6|t==9) {                                                                                                               
+	               total++;
+	               break;
+	            }                                                                                                                                   
+	                                                                                                                                                
+	            if(h==3||h==6||h==9) {                                                                                                              
+	               total++;
+	               break;
+	            }                                                                                                                                   
+	                                                                                                                                                
+	            if(ten==3||ten==6||ten==9) {                                                                                                        
+	               total++;
+	               break;
+	            }   
+	            
+	            if(one==3||one==6||one==9) {                                                                                                        
+		           total++;
+		           break;
+		        }                                                                                                                                               
+                                                                                                                                     
+	         count++;                                                                                                                                
+	      }                                                                                                                                           
+	      System.out.println(total);                                                                                                                  
+	   }                                                                                                                                               
+	}                                                                                                                                                   
+	                                                                                                                                                  
+	                                                                                                                                                    
+	                                                                                                                                                    
+	                                                                                                                                                    
+	                                                                                                                                                    

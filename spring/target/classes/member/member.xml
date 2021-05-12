@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+	<bean id = "dao" class="member.MemberDAO">
+		<property name="memberVO" ref="vo2" /> <!--  만들어진 객체 참조 -->
+	</bean>
+
+	<bean id="vo" class="member.MemberVO">
+		<constructor-arg value="spring"/> <!--  값을 전달  -->
+		<constructor-arg value="work"/>
+	</bean>
+
+	<bean id="vo2" class="member.MemberVO">
+		<property name="id" value="setvlet"/>
+		<property name="pw" value="jsp"/>
+	</bean>
+	
+</beans>

@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section name="Workbench">
+	<item key="org.eclipse.egit.ui.internal.clone.GitSelectWizardPageWizardSel" value="2"/>
+	<item key="GitSelectRepositoryPage.lastRepository" value="C:\kdigital\git\git_test\.git"/>
+	<list key="RepositorySelectionPage.UsedUris">
+		<item value="https://github.com/moonbaaang/git_test.git"/>
+		<item value="https://github.com/moonbaaang/gitForkTest.git"/>
+		<item value="https://github.com/moonbaaang/forktest.git"/>
+		<item value="https://github.com/sunghee-cho/multicampus.git"/>
+		<item value="https://github.com/moonbaaang/multicampus.git"/>
+	</list>
+	<list key="EGit.KnownHosts">
+		<item value="git.eclipse.org"/>
+		<item value="github.com"/>
+		<item value="bitbucket.org"/>
+	</list>
+	<list key="CommitDialog.authorValues">
+		<item value="moonbaaang &lt;qudwjsdl0814@naver.com&gt;"/>
+	</list>
+	<list key="CommitDialog.committerValues">
+		<item value="moonbaaang &lt;qudwjsdl0814@naver.com&gt;"/>
+	</list>
+	<section name="org.eclipse.egit.ui.internal.staging.StagingView">
+		<item key="HORIZONTAL_SASH_FORM_WEIGHT" value="500,500"/>
+		<item key="STAGING_SASH_FORM_WEIGHT" value="500,500"/>
+		<item key="sortItemState" value="false"/>
+	</section>
+	<section name="GitCommitMessageComponent">
+		<list key="C:\kdigital\git\.git">
+			<item value="false"/>
+			<item value="moonbaaang &lt;qudwjsdl0814@naver.com&gt;"/>
+			<item value="first update"/>
+			<item value="moonbaaang &lt;qudwjsdl0814@naver.com&gt;"/>
+			<item value="531aab447131e39e25e1f5815ad88d73682ed999"/>
+			<item value="0"/>
+			<item value="false"/>
+		</list>
+		<list key="C:\kdigital\git\forktest\.git">
+			<item value="empty"/>
+		</list>
+		<list key="C:\kdigital\git\repository\.git">
+			<item value="empty"/>
+		</list>
+		<list key="C:\kdigital\git\ForkTest\.git">
+			<item value="false"/>
+			<item value="moonbaaang &lt;qudwjsdl0814@naver.com&gt;"/>
+			<item value="marge test"/>
+			<item value="moonbaaang &lt;qudwjsdl0814@naver.com&gt;"/>
+			<item value="87f456d249ca5fa151d00fab9c1d314b2be23aa6"/>
+			<item value="0"/>
+			<item value="false"/>
+		</list>
+		<list key="C:\kdigital\git\git_test\.git">
+			<item value="empty"/>
+		</list>
+	</section>
+	<section name="org.eclipse.egit.ui.internal.push.PushResultDialog.dialogBounds">
+		<item key="DIALOG_X_ORIGIN" value="348"/>
+		<item key="DIALOG_Y_ORIGIN" value="197"/>
+		<item key="DIALOG_WIDTH" value="668"/>
+		<item key="DIALOG_HEIGHT" value="481"/>
+		<item key="DIALOG_FONT_NAME" value="1|맑은 고딕|9.0|0|WINDOWS|1|-15|0|0|0|400|0|0|0|1|0|0|0|0|맑은 고딕"/>
+		<list key="sashWeights">
+			<item value="600"/>
+			<item value="400"/>
+		</list>
+	</section>
+	<section name="GitImportWizard">
+		<item key="GitProjectsImportPage.STORE_NESTED_PROJECTS" value="true"/>
+	</section>
+	<section name="org.eclipse.egit.ui.internal.dialogs.MergeTargetSelectionDialog.dialogBounds">
+		<item key="DIALOG_X_ORIGIN" value="425"/>
+		<item key="DIALOG_Y_ORIGIN" value="13"/>
+		<item key="DIALOG_WIDTH" value="613"/>
+		<item key="DIALOG_HEIGHT" value="760"/>
+		<item key="DIALOG_FONT_NAME" value="1|맑은 고딕|9.0|0|WINDOWS|1|-15|0|0|0|400|0|0|0|1|0|0|0|0|맑은 고딕"/>
+	</section>
+	<section name="org.eclipse.egit.ui.internal.pull.PullResultDialog.dialogBounds">
+		<item key="DIALOG_X_ORIGIN" value="394"/>
+		<item key="DIALOG_Y_ORIGIN" value="211"/>
+		<item key="DIALOG_WIDTH" value="675"/>
+		<item key="DIALOG_HEIGHT" value="462"/>
+		<item key="DIALOG_FONT_NAME" value="1|맑은 고딕|9.0|0|WINDOWS|1|-15|0|0|0|400|0|0|0|1|0|0|0|0|맑은 고딕"/>
+	</section>
+	<section name="org.eclipse.egit.ui.internal.merge.MergeResultDialog.dialogBounds">
+		<item key="DIALOG_X_ORIGIN" value="400"/>
+		<item key="DIALOG_Y_ORIGIN" value="339"/>
+		<item key="DIALOG_WIDTH" value="662"/>
+		<item key="DIALOG_HEIGHT" value="271"/>
+		<item key="DIALOG_FONT_NAME" value="1|맑은 고딕|9.0|0|WINDOWS|1|-15|0|0|0|400|0|0|0|1|0|0|0|0|맑은 고딕"/>
+	</section>
+</section>

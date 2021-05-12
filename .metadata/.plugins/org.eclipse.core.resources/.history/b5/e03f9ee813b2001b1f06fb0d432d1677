@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script>
+//canvas 객체
+	window.onload = function(){
+		var samplecanvas = document.getElementById("samplecanvas");
+		var samplecontext = samplecanvas.getContext("2d"); //붓 역할
+		samplecontext.font = "25px Batang";
+		samplecontext.fillStyle = "blue";
+		samplecontext.fillText("캔버스위에 글씨를 씁니다.", 100, 100); //x, y좌표
+		samplecontext.fillRecr(200, 200, 100, 100); //x, y, width, height
+}
+
+</script>
+</head>
+<body>
+<h1>캔버스</h1>
+<canvas id="samplecanvas" width=400 height=400 style="border : solid 2px pink"></canvas>
+</body>
+</html>

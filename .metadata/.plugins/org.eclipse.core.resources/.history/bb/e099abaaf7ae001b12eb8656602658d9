@@ -1,0 +1,46 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="jquery-3.2.1.min.js"></script>
+<script>
+$(document).ready(function(){
+
+});
+</script>
+</head>
+<body>
+<h1>닮은 연예인 찾아주기</h1>
+<!--  JSONObject  / JSONArray 라이브러리 다운로드 -->
+
+<%
+	String faceResult = (String)request.getAttribute("faceResult");
+	out.println(faceResult + "<br>");
+
+	String faceInfo[] = faceResult.split("\"faces\"");
+	out.println(faceInfo[1] + "<br>");
+	
+	String celeInfo[] = faceInfo[1].split("\"celebrity\"");
+	out.println(celeInfo[celeInfo.length-1]+ "<br>");
+
+	String one = celeInfo[celeInfo.length-1];
+	
+	int valueIndex = one.indexOf("\"value\":");
+	int valueLength = "\"value\":".length();
+	int confiIndex = one.indexOf("\"confidence\":");
+	int confiLength = "\"confidence\":".length();
+	
+	out.println(celeInfo[celeInfo.length-1].substring(valueIndex + valueLength, confiIndex-1)+"<br>");
+	out.println(celeInfo[celeInfo.length-1].substring(confiIndex + confiLength, confiIndex + confiLength + 8)+"<br>");
+%><br>
+
+
+
+<%= "닮은 연예인 이름 = " %><br>
+<%= "닮은 정도 = " %><br>
+</body>
+</html>

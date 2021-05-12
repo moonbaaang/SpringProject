@@ -1,0 +1,16 @@
+package com.multi.myboot01;
+
+import java.util.Scanner;
+
+public class testsetes {
+	public static void main(String args[]) {
+		Scanner sc = new Scanner(System.in);
+		
+		int start = sc.nextInt();
+		int end = sc.nextInt();
+		
+		int count = 0;
+		
+		System.out.println(start+end);
+	}
+}

@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans:beans xmlns="http://www.springframework.org/schema/mvc"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:beans="http://www.springframework.org/schema/beans"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/mvc https://www.springframework.org/schema/mvc/spring-mvc.xsd
+		http://www.springframework.org/schema/beans https://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/context https://www.springframework.org/schema/context/spring-context.xsd">
+
+	<!-- DispatcherServlet Context: defines this servlet's request-processing infrastructure -->
+	
+	<!-- Enables the Spring MVC @Controller programming model -->
+	<annotation-driven />
+
+	<!-- Handles HTTP GET requests for /resources/** by efficiently serving up static resources in the ${webappRoot}/resources directory -->
+	<!-- spring mvc bean 설정파일 아래에서 모든 view는 jsp만 된다고 정의되어있음 따라서 다른 영역인 webapp/resources/에 저장
+	본 수업에서는 jquery 저장함 -->
+	<resources mapping="/resources/**" location="/resources/" />
+
+	<!-- Resolves views selected for rendering by @Controllers to .jsp resources in the /WEB-INF/views directory -->
+	<beans:bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+		<beans:property name="prefix" value="/WEB-INF/views/" />
+		<beans:property name="suffix" value=".jsp" />
+	</beans:bean>
+	
+	<context:component-scan base-package="multi.campus.spring" />
+	<context:component-scan base-package="spring_mybatis" />
+	<context:component-scan base-package="upload" />
+	<context:component-scan base-package="ajax" />
+	<context:component-scan base-package="homework" />
+	<!-- 다른 패키지에 사용하고싶을 때 또 선언하면됨 -->
+	
+	<!-- /hello > new helloController() >> HandlerMapping이 기존 담당-->
+	
+	<beans:bean id="HelloController" class="multi.campus.spring.HelloController"/>
+
+	<beans:bean id="urlMapping" class="org.springframework.web.servlet.handler.SimpleUrlHandlerMapping">
+		<beans:property name="mappings">
+			<beans:props>
+				<beans:prop key="/hello">HelloController</beans:prop>
+
+			</beans:props>
+		</beans:property>
+	</beans:bean>
+	
+	
+	<!-- 파일 업로드 -->
+	<beans:bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver"/>
+	
+	
+</beans:beans>
