@@ -19,6 +19,12 @@ public class NaverController {
 	NaverOCRService ocrservice; // image > text
 	@Autowired
 	NaverObjectDetectionService objectdetectionservice; // Object detection service
+	@Autowired
+	NaverPoseService poseservice; //포즈 분석
+	@Autowired
+	NaverSpeechService speechservice;
+	@Autowired
+	NaverVoiceService voiceservice;
 	
 	// 닮은 유명인 찾기
 	@RequestMapping("/faceinput")
@@ -134,6 +140,77 @@ public class NaverController {
 		ModelAndView mv = new ModelAndView();
 		mv.addObject("objectdetectionResult", result);
 		mv.setViewName("/naver/objectdetection"); 
+		return mv;
+	}
+	
+	// pose estimation
+	@RequestMapping("/poseinput")
+	public ModelAndView poseinput() {
+		File f = new File("C:\\kdigital\\images");
+		String[] filelist = f.list();
+		ModelAndView mv = new ModelAndView();
+		mv.addObject("filelist", filelist);
+		mv.setViewName("/naver/poseinput");
+		return mv;
+	}
+	 
+	@RequestMapping(value="/pose", method=RequestMethod.GET)
+	public ModelAndView pose(String image) {
+		String result = poseservice.test(image); 
+		ModelAndView mv = new ModelAndView();
+		mv.addObject("poseResult", result);
+		mv.setViewName("/naver/pose"); 
+		return mv;
+	}
+	
+	// CSR
+	@RequestMapping("/speechinput")
+	public ModelAndView speechinput() {
+		File f = new File("C:\\kdigital\\images");
+		String[] filelist = f.list();
+		ModelAndView mv = new ModelAndView();
+		mv.addObject("filelist", filelist);
+		mv.setViewName("/naver/speechinput"); //image=mp파일&lang=언어
+		return mv;
+	}
+	 
+	@RequestMapping(value="/speech", method=RequestMethod.GET)
+	public ModelAndView speech(String image, String lang) { //@RequestParam("lang") String language (변수 이름을 다르게 했을 때)
+		//lang 미선택시
+		String result;
+		if(lang==null) {
+			result = speechservice.test(image);
+		} else {//lang 선택시
+			result = speechservice.test(image, lang); 
+		}
+		ModelAndView mv = new ModelAndView();
+		mv.addObject("speechResult", result);
+		mv.setViewName("/naver/speech"); 
+		return mv;
+	}
+	
+	// text > voice
+	@RequestMapping("/voiceinput")
+	public ModelAndView voiceinput() {
+		File f = new File("C:\\kdigital\\images");
+		String[] filelist = f.list();
+		ModelAndView mv = new ModelAndView();
+		mv.addObject("filelist", filelist);
+		mv.setViewName("/naver/voiceinput"); //txt, speaker
+		return mv;
+	}
+	 
+	@RequestMapping(value="/voice", method=RequestMethod.GET)
+	public ModelAndView voice(String image, String speaker) {
+		String result;
+		if(speaker==null) {
+			result = voiceservice.test(image);			
+		} else {
+			result = voiceservice.test(image, speaker); 			
+		}
+		ModelAndView mv = new ModelAndView();
+		mv.addObject("voiceResult", result); // 네이버 tts - *.mp3 
+		mv.setViewName("/naver/voice"); 
 		return mv;
 	}
 }

@@ -37,7 +37,7 @@ $(document).ready(function(){
 		var confidence = json.predictions[0].detection_scores;
 		var boxes = json.predictions[0].detection_boxes;
 		for(var i = 0; i < names.length;i++){
-			if(confidence[i] >= 0.9){
+			if(confidence[i] >= 0.5){
 			var y1 = boxes[i][0] * image.height; //세로시작지점
 			var x1 = boxes[i][1] * image.width;//가로시작지점
 			var y2 = boxes[i][2] * image.height; //세로종료지점
@@ -94,7 +94,7 @@ window.onload = function(){
 <div id="count"></div>
 <div id="names"></div>
 <div id="confidence"></div>
-<canvas id="imagecanvas" width=500 height=500 style="border : 2px solid red"></canvas>
+<canvas id="imagecanvas" width=1000 height=1000 style="border : 2px solid red"></canvas>
 </body>
 </html>
 
