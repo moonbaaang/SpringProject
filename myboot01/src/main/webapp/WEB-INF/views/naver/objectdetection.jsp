@@ -17,7 +17,7 @@ $(document).ready(function(){
 	$("#confidence").text(" 확률 = ");
 	for(var i = 0; i < json.predictions[0].num_detections; i++ ){
 		$("#confidence").append
-		(parseInt(parseFloat(json.predictions[0].detection_scores) * 100) + "% , ");
+		(parseInt(parseFloat(json.predictions[0].detection_scores[i]) * 100) + "% , ");
 	}
 	// 캔버스에 이미지 로드( canvas 태그 + canvas 자바스크립트 라이브러리)
 	var imagecanvas = document.getElementById("imagecanvas");//htmlobject타입

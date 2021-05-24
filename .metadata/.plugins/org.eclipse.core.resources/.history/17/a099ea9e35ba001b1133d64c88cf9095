@@ -1,0 +1,32 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="/jquery-3.2.1.min.js"></script>
+<script>
+$(document).ready(function(){
+
+});
+</script>
+</head>
+<body>
+파일 선택 : 
+    <select name="image">
+        <% 
+        String[] filelist = (String[])request.getAttribute("filelist");
+        for (String file : filelist){ //각종 확장자가 다 나온다. 파일리스트를 mp3만 보여주는 형태로 바꿔
+            String[] f_split = file.split("[.]"); //특수하게 점이라는 기호 표현 (정규표현식 방법) / split( ) 리턴 타입 배열임
+            String ext = f_split[f_split.length-1];
+            if(ext.equals("txt")) { //mp3 파일만 가지고 오도록
+        %>
+        <option value = "<%=file%>"> <%=file%></option> 
+        <%
+            }//if end 
+        }//for end 
+        %>
+</body>
+</html>

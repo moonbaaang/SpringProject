@@ -141,6 +141,8 @@
 		<item key="SmartImportRootWizardPage.STORE_NESTED_PROJECTS" value="true"/>
 		<item key="SmartImportRootWizardPage.STORE_CONFIGURE_NATURES" value="true"/>
 		<list key="org.eclipse.ui.internal.wizards.datatransfer.SmartImportRootWizardPage.knownSources">
+			<item value="C:\Users\user\git\TeamProject"/>
+			<item value="C:\Users\user\Desktop\mbj\teamProject\TeamProject\project_test"/>
 			<item value="C:\kdigital\git\git_test"/>
 			<item value="C:\kdigital\git\forktest\githubforktest"/>
 			<item value="C:\kdigital\git"/>

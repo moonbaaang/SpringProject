@@ -1,0 +1,34 @@
+package naver.chatbot;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
+
+@Controller
+public class NaverChatbotController {
+
+	@Autowired
+	NaverChatbotService chatbotservice;
+	
+	@RequestMapping("/chatbotstart")
+	public String chatbotstart() {
+		return "/naver/chatbot/chatbotstart";
+	}
+	
+	@RequestMapping("/chatbot")
+	@ResponseBody
+	public String chatbot(String message) {
+		// message - 웰컴메시지
+		String event = null;
+		if(message == "") {
+			event = "open";
+		}else {
+			event = "send";
+		}
+		
+		String response = chatbotservice.test(message, event);
+		return response; //{....}
+	}
+	// 질문 받아서 네이버 서버 호출, 답변 내용 리턴
+}

@@ -2,8 +2,13 @@ package com.multi.kdigitalboot;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.context.annotation.ComponentScan;
+
+import object.detection.ObjectdetectionController;
 
 @SpringBootApplication
+@ComponentScan
+@ComponentScan(basePackageClasses = ObjectdetectionController.class)
 public class KdigitalbootApplication {
 // 메인 메서드로 내장 tomcat을 실행함
 	public static void main(String[] args) {

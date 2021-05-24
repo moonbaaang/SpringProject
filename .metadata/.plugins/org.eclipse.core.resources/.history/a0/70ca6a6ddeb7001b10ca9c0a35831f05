@@ -1,0 +1,37 @@
+package object.detection;
+
+import java.io.File;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.servlet.ModelAndView;
+
+@Controller
+public class ObjectdetectionController {
+
+	@Autowired
+	NaverObjectDetectionService service;
+	
+	@RequestMapping("/ocrinput")
+	public ModelAndView ocrinput() {
+		File f = new File("C:\\kdigital\\images");
+		String[] filelist = f.list();
+		ModelAndView mv = new ModelAndView();
+		mv.addObject("filelist", filelist);
+		mv.setViewName("/naver/ocrinput");
+		return mv;
+	}
+	 
+	@RequestMapping(value="/ocr", method=RequestMethod.GET)
+	public ModelAndView ocr(String image) {
+		String result = service.test(image); //이미지에서 텍스트 추출
+		ModelAndView mv = new ModelAndView();
+		mv.addObject("ocrResult", result);
+		mv.setViewName("/naver/ocr"); // 임시 변경
+		return mv;
+	}
+	
+}

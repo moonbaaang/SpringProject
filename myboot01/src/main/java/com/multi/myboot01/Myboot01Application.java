@@ -6,6 +6,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.ComponentScan;
 // 부트 시작 클래스
 
+import naver.chatbot.NaverChatbotController;
 import naver.cloud.NaverController;
 import spring_mybatis.EmpController;
 import spring_mybatis.EmpDAO;
@@ -20,6 +21,7 @@ import spring_mybatis.EmpDAO;
 @ComponentScan
 @ComponentScan(basePackageClasses = EmpController.class)
 @ComponentScan(basePackageClasses = NaverController.class)
+@ComponentScan(basePackageClasses = NaverChatbotController.class)
 // EmpController가 있는 spring_mybatis 내부에서 annotation 사용 가능
 @MapperScan(basePackageClasses = EmpDAO.class)
 public class Myboot01Application {
@@ -27,5 +29,5 @@ public class Myboot01Application {
 	public static void main(String[] args) {
 		SpringApplication.run(Myboot01Application.class, args);
 	}
-
+	
 }

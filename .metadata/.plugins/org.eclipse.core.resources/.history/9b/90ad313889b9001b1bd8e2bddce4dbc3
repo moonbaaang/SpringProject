@@ -1,0 +1,21 @@
+# 서버포트변경
+server.port=9091
+
+#Spring MVC
+spring.mvc.view.prefix=/WEB-INF/views/
+spring.mvc.view.suffix=.jsp
+
+#file upload size - 1mb default
+spring.servlet.multipart.maxFileSize=100MB
+spring.servlet.multipart.maxRequestSize=100MB
+
+#mybatis db connection infomation
+spring.datasource.driver-class-name= oracle.jdbc.driver.OracleDriver
+spring.datasource.url=jdbc:oracle:thin:@127.0.0.1:1521:xe
+spring.datasource.username=hr
+spring.datasource.password=hr
+
+#mybatis 연결설정파일명
+# classpath >> src/main/resources
+# db-config.xml은 src/main/resources로 이동
+mybatis.config-location=classpath:db-config.xml

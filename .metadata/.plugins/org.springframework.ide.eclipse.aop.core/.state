@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <aop-reference-model>
 <aop-project name="spring"/>
-<aop-project name="test1"/>
 <aop-project name="kdigitalboot"/>
 <aop-project name="myboot01"/>
 <aop-project name="mytest"/>
+<aop-project name="project_test"/>
 <aop-project name="semiproject"/>
 </aop-reference-model>

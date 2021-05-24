@@ -1,0 +1,3 @@
+Unstaged changes after reset:
+D	project_test/src/main/webapp/WEB-INF/views/search/hashtagsearch.jsp
+M	project_test/src/main/webapp/WEB-INF/views/search/search.jsp

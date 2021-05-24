@@ -71,6 +71,6 @@ public class UploadController {
 		multipartfile2.transferTo(file2);
 		
 		//return "/upload/uploadresult"; //기존값
-		return "잘받았습니다"; //python 테스트
+		return "잘받았습니다."; //python 테스트
 	}
 }

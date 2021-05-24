@@ -1,5 +1,5 @@
-GitRepositoriesView.GitDirectories=C\:\\kdigital\\git\\git_test\\.git;C\:\\kdigital\\workspace_spring\\semiproject\\.git;
-GitRepositoriesView.GitDirectories.relative=C\:\\kdigital\\git\\git_test\\.git;semiproject\\.git;
+GitRepositoriesView.GitDirectories=C\:\\kdigital\\workspace_spring\\semiproject\\.git;C\:\\Users\\user\\Desktop\\mbj\\teamProject\\TeamProject\\.git;
+GitRepositoriesView.GitDirectories.relative=semiproject\\.git;C\:\\Users\\user\\Desktop\\mbj\\teamProject\\TeamProject\\.git;
 RepositoryGroups.uuids=
 RepositorySearchDialogSearchPath=C\:\\kdigital\\git
 core_autoIgnoreDerivedResources=false

@@ -3,6 +3,8 @@
 	<item key="org.eclipse.egit.ui.internal.clone.GitSelectWizardPageWizardSel" value="2"/>
 	<item key="GitSelectRepositoryPage.lastRepository" value="C:\kdigital\git\git_test\.git"/>
 	<list key="RepositorySelectionPage.UsedUris">
+		<item value="https://github.com/fxf24/TeamProject.git"/>
+		<item value="https://github.com/fxf24/TeamProject/tree/master/project_test"/>
 		<item value="https://github.com/moonbaaang/git_test.git"/>
 		<item value="https://github.com/moonbaaang/gitForkTest.git"/>
 		<item value="https://github.com/moonbaaang/forktest.git"/>
@@ -51,6 +53,9 @@
 			<item value="false"/>
 		</list>
 		<list key="C:\kdigital\git\git_test\.git">
+			<item value="empty"/>
+		</list>
+		<list key="C:\Users\user\Desktop\mbj\teamProject\TeamProject\.git">
 			<item value="empty"/>
 		</list>
 	</section>

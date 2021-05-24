@@ -1,0 +1,49 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="/jquery-3.2.1.min.js"></script>
+<script>
+$(document).ready(function(){
+
+});
+</script>
+<script type="text/javascript">
+const name = "Mike"; // let 은 변수 변경 가능 , const 상수 수정 불가능(대문자로 가급적) 문자,숫자 $ _ 만 사용가능
+const age = 30;
+
+const message = "I'm a boy";
+const message2 = "My name is "+name+", age is "+age;
+console.log(message2); //or alert()
+//alert(message2);
+
+const x = 1/0;
+const y = name/2;
+console.log(x);
+console.log(y);
+
+//const test1 = prompt("이름은 ?", "홍길동");
+//alert("환영합니다. "+test1+"님");
+//const test2 = confirm("당신은 성인입니까?")
+//alert(test2)
+
+const math = Number(prompt("수학 몇점"))
+const eng = Number(prompt("영어 몇점"))
+const result = (math+eng)/2
+alert(result)
+
+function showError(){
+	alert('에러가 발생했습니다.');
+}
+
+showError();
+</script>
+</head>
+<body>
+
+</body>
+</html>

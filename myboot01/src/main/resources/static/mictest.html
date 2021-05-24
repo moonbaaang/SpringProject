@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>마이크 테스트</title>
+    <script src="/jquery-3.2.1.min.js"></script>
+</head>
+<body>
+   <button id="record">녹음</button>
+    <button id="stop">정지</button>
+    <div id="sound-clips"></div>
+    <script>
+        const record = document.getElementById("record")
+        const stop = document.getElementById("stop")
+        const soundClips = document.getElementById("sound-clips")
+
+        if (navigator.mediaDevices) {
+            console.log('getUserMedia supported.')
+            const constraints = {
+                audio: true
+            }
+            let chunks = []
+            navigator.mediaDevices.getUserMedia(constraints)
+                .then(stream => {
+                    const mediaRecorder = new MediaRecorder(stream) // 녹음 api
+                    record.onclick = () => { // 녹음버튼 클릭시
+                        mediaRecorder.start() // 음성녹음 시작
+                        console.log(mediaRecorder.state)
+                        console.log("recorder started")
+                        record.style.background = "red"
+                        record.style.color = "black"
+                    }
+                    stop.onclick = () => {//정지 버튼 클릭시에
+                        mediaRecorder.stop()//녹음 정지시켜라
+                        console.log(mediaRecorder.state)
+                        console.log("recorder stopped")
+                        record.style.background = ""
+                        record.style.color = ""
+                    }
+					//녹음 정지시킨 상태가 되면 실행하라
+                    mediaRecorder.onstop = e => {
+                        console.log("data available after MediaRecorder.stop() called.")
+                        //저장파일명
+                        const clipName = "mictest"+new Date().getTime().toString().substring(10);
+						//audio 태그 만들어라
+                        const audio = document.createElement('audio')
+                        // a태그 만들어라
+                        const a = document.createElement('a')
+ 						//controls 속성 만들어라 <audio controls=controls>를 만듦
+                        audio.setAttribute('controls', '')
+                        audio.controls = true
+                        //auido  태그를 sound-clips에 포함하라 
+                        soundClips.appendChild(audio)
+                        //a 태그를 sound-clips에 포함하라
+                        soundClips.appendChild(a)
+                        //chunks에 저장된 녹음 데이터를 audio 양식으로 만들어라
+                        const blob = new Blob(chunks, {
+                            'type': 'audio/mp3'
+                        })
+                        chunks = []
+                        const audioURL = URL.createObjectURL(blob)
+                        audio.src = audioURL //<audio src=녹음blob controls=controls>
+ 						
+ 						//파일 저장
+ 						//a.href=audioURL;
+ 						//a.download = clipName; //저장파일명
+ 						//a.innerHTML = 'MP3로 저장';
+ 						
+ 						// 내 스프링서버로 녹음한 데이터 업로드
+ 						//js FormData 객체 - <form ... <input type=file name=file  / form 태그 쓴거와 같은 효과
+ 						var formData = new FormData();
+ 						formData.append('file', blob, clipName+".mp3");
+ 						$.ajax({
+ 							url: '/mp3upload',
+ 							type: 'post',
+ 							data: formData,
+ 							processData: false, //string값이 아니다라는 정보
+ 							contentType: false, //파일전송시 부가적으로 필요함
+ 							success: function(response){ // 스프링 서버에 업로드 완료
+ 								//alert(response);
+ 								$.ajax({
+ 									url:'/chatbotspeech',
+ 									type: 'get',
+ 									data: {"mp3file": clipName+".mp3", "lang":"Kor"},
+ 									success: function(responsetext){
+ 										alert(responsetext)
+ 									},
+ 								})
+ 								
+ 							} 
+ 						});	//jquery 표현
+ 						
+ 						
+                    }//mediaRecorder.onstop
+
+                    //녹음 시작시킨 상태가 되면 chunks에 녹음 데이터를 저장하라 
+                    mediaRecorder.ondataavailable = e => {
+                        chunks.push(e.data)
+                    }
+                })
+                .catch(err => {
+                    console.log('The following error occurred: ' + err)
+                })
+        }
+    </script>
+</body>
+</html>
